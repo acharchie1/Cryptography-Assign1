@@ -1,6 +1,4 @@
 import os
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
 import rsa
 from cryptography.fernet import Fernet
 
