@@ -5,15 +5,6 @@ import rsa
 from cryptography.fernet import Fernet
 
 
-def Google_Upload(nn):
-    g_login = GoogleAuth()
-    g_login.LocalWebserverAuth()
-    drive = GoogleDrive(g_login)
-    with open(nn, "r") as file:
-        file_drive = drive.CreateFile({'title': os.path.basename(file.name)})
-        file_drive.SetContentString(file.read())
-        file_drive.Upload()
-
 
 def Get_Keys():
     # create the symmetric key
@@ -102,12 +93,10 @@ def main():
     u = input('please enter path of the file: ')
     Encrypt(u)
     path = os.path.dirname(os.path.realpath(__file__)) + '/encrypted_file'
-    Google_Upload(path)
-    print('Encrypted was File Uploaded in Google Drive Successfully')
+    print('File Encrypted')
     Decrypt(path)
     mm = os.path.dirname(os.path.realpath(__file__)) + '/decrypted_file'
-    Google_Upload(mm)
-    print('Decrypted was File Uploaded in Google Drive Successfully')
+    print('File Decrypted')
 
 
 if __name__ == "__main__":
