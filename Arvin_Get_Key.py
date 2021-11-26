@@ -20,7 +20,7 @@ def Get_Keys():
     
     k.close()
 
-    # create the pub & private keys
+    # create the public & private keys
     
     (pubkey, privkey) = rsa.newkeys(2048)
 
@@ -53,7 +53,7 @@ def Encrypt(nn):
     
     cipher = Fernet(key)
 
-    # open file for encrypting
+    # open file for encryption
 
     myfile = open(nn, 'rb')
     
@@ -120,19 +120,21 @@ def Decrypt(nn):
 
 def main():
     
+    # user declares their file path here
+    
     Get_Keys()
     
-    print('by right click on the desired file and then copy path you can access to file path')
+    print('By accessing file properties by right-clicking on your desired file, you can identify its path location.')
     
-    print('example D:\\download\pp.png')
+    print('Example D:\downloads\file.png')
     
-    u = input('please enter path of the file: ')
+    u = input('Please enter path of the file: ')
     
     Encrypt(u)
   
     print('File Encrypted Successfully')
     
-    b= input('please enter path of the encrypted file: ')
+    b= input('Please enter path of the encrypted file: ')
     
     Decrypt(b)
   
